@@ -1,0 +1,54 @@
+
+{%extends 'base.html'%} 
+{%load static%}{%block contents%}
+<div class="container">
+  <div class="row mt-5">
+    <div class="col"></div>
+    <div class="col">
+      <h2>Share any texts via URL</h2>
+      {% if success %}
+      <p><a href="{{url}}">{{url}}</a></p>
+      <div id="qrcode"></div>
+      <script src="{% static 'images/qrcode.min.js' %}"></script>
+      <script>
+        var qrcode = new QRCode("qrcode",
+        "{{ url }}");
+    </script>
+      {% else %}
+      <form method="post">
+        {%csrf_token%}
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label"
+            ><b>Enter your text here:</b>
+          </label>
+          <textarea
+            name="message"
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="9"
+          ></textarea>
+        </div>
+        <b>Secret Code:</b> (max 10 characters)<br />
+        <div class="mb-2">
+          <input
+            name="code"
+            id="id_code"
+            class="w3-input w3-border w3-rounded"
+            type="text"
+            maxlength="10"
+            required=""
+          />
+        </div>
+        <div class="w3-margin-bottom">
+          <input name="burn" id="id_burn" class="w3-check" type="checkbox" />
+          <label for="id_burn">Burn after read</label>
+        </div>
+        <br /><br />
+        <button type="submit" class="btn btn-warning">Create a textbox</button>
+      </form>
+      {% endif %}
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+{%endblock%}

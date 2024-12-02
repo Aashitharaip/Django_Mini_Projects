@@ -1,0 +1,14 @@
+{% extends 'base.html'%} {%block contents%} {%load static%}
+<div class="container">
+  <div class="row mt-5">
+    <div class="col col-lg-2"></div>
+    <div class="col">
+      <a href="{% url 'jokes'%}"><button type="button" class="btn btn-warning">Click here for Chuck Norris Jokes </button></a>
+    </div>
+    <div class="col col-lg-2"></div>
+    <div class="col">
+      <a href="{% url 'pastebin'%}"><button type="button" class="btn btn-warning">Copy/Paste and share any texts here</button></a>
+    </div>
+  </div>
+</div>
+{%endblock%}

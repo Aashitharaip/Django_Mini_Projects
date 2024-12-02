@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block contents %}
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col">
+            <h2>Share any text via URL</h2>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">
+                    <b>Message: </b>
+                </label>
+                <textarea
+                    name="message"
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="5"
+                    readonly
+                >
+                    {{ paste.message }}
+                </textarea>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+{% endblock %}

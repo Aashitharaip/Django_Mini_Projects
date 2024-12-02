@@ -1,0 +1,19 @@
+{% extends 'base.html'%} {%block contents%}
+{%load static%}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col"></div>
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="{%static 'images/pic.png'%}"  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">{{joke}}</p>
+                  <a href="{% url 'jokes'%}" class="btn btn-warning mb-2">Tell me a Chuck Norris joke!</a>
+                </div>
+              </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+{%endblock%}
+
